@@ -20,6 +20,9 @@ type ResponseWriter interface {
 	// The Content-Type header is set to "application/json", unless already specified.
 	WriteJson(v interface{}) error
 
+	// direct text json
+	Write(b []byte) (int, error)
+
 	// Encode the data structure to JSON, mainly used to wrap ResponseWriter in
 	// middlewares.
 	EncodeJson(v interface{}) ([]byte, error)
